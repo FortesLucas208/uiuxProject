@@ -563,10 +563,6 @@
     flex-shrink: 0;
   }
 
-  .course-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(212, 175, 55, 0.28);
-  }
 
   .course-image {
     height: 220px;
