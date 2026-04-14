@@ -601,6 +601,7 @@
     color: var(--muted);
     line-height: 1.7;
     transition: var(--transition);
+    margin-top: 30px;
   }
 
   .course-overlay {
