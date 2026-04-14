@@ -114,3 +114,16 @@ const revealElements = document.querySelectorAll(".reveal");
         }, 3500);
       });
     }
+
+//Seção 6 (Professores)
+    const teacherCards = document.querySelectorAll(".teacher-card");
+
+teacherCards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    card.classList.add("spotlight");
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.classList.remove("spotlight");
+  });
+});

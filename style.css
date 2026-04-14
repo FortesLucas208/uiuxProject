@@ -729,3 +729,48 @@
       align-items: flex-start;
     }
   }
+
+   /* Seção 6*/
+
+  .teacher-card {
+    cursor: pointer;
+  }
+ 
+  .teacher-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 5;
+  }
+  
+  .teacher-card .course-overlay {
+    z-index: 6;
+  }
+  
+  .teacher-card:hover::before {
+    opacity: 1;
+  }
+  
+  .teacher-card:hover .course-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .teacher-card:hover .course-short {
+    opacity: 0.1;
+    transform: translateY(-10px);
+  }
+  .card-img {
+    width: 404px;
+    height: 316px;
+    object-fit: contain;
+    object-position: center;
+    background: #0f0f0f; /* fundo padrão elegante */
+    border-radius: 12px;
+    padding: 10px;
+  }
+  
