@@ -711,30 +711,71 @@ body.transitioning::after {
   font-weight: 700;
   margin-right: 6px;
 }
-.purchase-popup {
+
+.live-popup {
   position: fixed;
-  bottom: 20px;
+  bottom: -300px;
   left: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  backdrop-filter: blur(10px);
-  padding: 14px 18px;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  color: var(--white);
+  width: 300px;
+  background: rgba(0,0,0,0.9);
+  border: 1px solid rgba(212,175,55,0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 16px;
+  color: white;
   z-index: 9999;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.6s ease, opacity 0.6s ease;
   opacity: 0;
-  transform: translateY(20px);
-  transition: 0.4s ease;
 }
-.purchase-popup.show {
+
+.live-popup.show {
+  transform: translateY(-320px);
   opacity: 1;
-  transform: translateY(0);
 }
-.purchase-popup strong {
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
   color: var(--gold);
 }
-.purchase-popup span {
-  color: var(--gold);
+
+.popup-actions button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.popup-body {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.popup-history {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 10px;
+}
+
+.popup-history h4 {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.popup-history ul {
+  list-style: none;
+  max-height: 100px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popup-history li {
+  font-size: 0.8rem;
+  color: var(--muted);
 }

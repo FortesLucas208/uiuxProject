@@ -115,3 +115,65 @@ setInterval(() => {
     liveNumber.textContent = current;
   }
 }, 2500);
+
+const popup = document.getElementById("livePopup");
+const buyerName = document.getElementById("buyerName");
+const courseName = document.getElementById("courseName");
+const historyList = document.getElementById("historyList");
+
+const closeBtn = document.getElementById("closePopup");
+const muteBtn = document.getElementById("mutePopup");
+
+let muted = false;
+
+const names = ["Lucas","Maria","João","Ana","Pedro","Fernanda","Carlos","Juliana","Rafael","Beatriz"];
+const courses = ["Marketing","Programação","Python","Vendas","Web"];
+
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function addHistory(name, course) {
+  const li = document.createElement("li");
+  li.textContent = `${name} entrou em ${course}`;
+
+  historyList.prepend(li);
+
+  if (historyList.children.length > 5) {
+    historyList.removeChild(historyList.lastChild);
+  }
+}
+
+function showPopup() {
+  if (muted) return;
+
+  const name = getRandom(names);
+  const course = getRandom(courses);
+
+  buyerName.textContent = name;
+  courseName.textContent = course;
+
+  addHistory(name, course);
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 4000);
+}
+
+// intervalo dinâmico (igual contador profissional)
+setInterval(() => {
+  showPopup();
+}, Math.random() * 4000 + 4000);
+
+// botão fechar
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+// botão silenciar
+muteBtn.addEventListener("click", () => {
+  muted = true;
+  popup.style.display = "none";
+});
