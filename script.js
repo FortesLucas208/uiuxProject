@@ -94,4 +94,24 @@ if (coursesCarousel && prevCourse && nextCourse) {
       }
     }, 3500);
   });
-} //Seção 6 (Professores) const teacherCards = document.querySelectorAll(".teacher-card"); teacherCards.forEach((card) => { card.addEventListener("mouseenter", () => { card.classList.add("spotlight"); }); card.addEventListener("mouseleave", () => { card.classList.remove("spotlight"); }); }); const liveNumber = document.getElementById("liveNumber"); let current = 127; setInterval(() => { const variation = Math.floor(Math.random() * 5); if (Math.random() > 0.5) { current += variation; } else { current -= variation; } if (current < 90) current = 90; if (current > 220) current = 220; liveNumber.textContent = current; }, 2500); const popup = document.getElementById("purchasePopup"); const names = [ "Lucas", "Pedro", "Ana", "Marcos", "Julia", "Rafael", "Bruno", "Carla", "Felipe", "Amanda" ]; const courses = [ "Python", "Vibe Coding", "Programação Web", "Programação em C" , "X" , "X1" , "X2" ]; function showPopup() { const randomName = names[Math.floor(Math.random() * names.length)]; const randomCourse = courses[Math.floor(Math.random() * courses.length)]; popup.innerHTML = <p><strong>${randomName}</strong> acabou de entrar no curso de <span>${randomCourse}</span></p>; popup.classList.add("show"); setTimeout(() => { popup.classList.remove("show"); }, 4000); } // aparece a cada X segundos setInterval(() => { showPopup(); }, 6000); // primeira aparição rápida setTimeout(showPopup, 2000);
+} 
+const liveNumber = document.getElementById("liveNumber");
+
+let current = 127;
+
+setInterval(() => {
+  const variation = Math.floor(Math.random() * 5);
+
+  if (Math.random() > 0.5) {
+    current += variation;
+  } else {
+    current -= variation;
+  }
+
+  if (current < 90) current = 90;
+  if (current > 220) current = 220;
+
+  if (liveNumber) {
+    liveNumber.textContent = current;
+  }
+}, 2500);
