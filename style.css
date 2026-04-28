@@ -738,3 +738,20 @@ body.transitioning::after {
 .purchase-popup span {
   color: var(--gold);
 }
+
+.iconcourse{
+  width: 100%;
+  height: 100%;
+}
+.iconcourse2{
+  width: 50%;
+  height: 75%;
+}
+.iconcourse3{
+  width: 75%;
+  height: 100%;
+}
+.iconcoursevibe{
+  width: 75%;
+  height: 75%;
+}
