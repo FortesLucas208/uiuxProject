@@ -116,64 +116,93 @@ setInterval(() => {
   }
 }, 2500);
 
-const popup = document.getElementById("livePopup");
-const buyerName = document.getElementById("buyerName");
-const courseName = document.getElementById("courseName");
-const historyList = document.getElementById("historyList");
+//POPUP//
 
-const closeBtn = document.getElementById("closePopup");
-const muteBtn = document.getElementById("mutePopup");
+document.addEventListener("DOMContentLoaded", () => {
 
-let muted = false;
+  const popup = document.getElementById("salePopup");
+  const buyerName = document.getElementById("buyerName");
+  const courseName = document.getElementById("courseName");
+  const closePopup = document.getElementById("closePopup");
 
-const names = ["Lucas","Maria","João","Ana","Pedro","Fernanda","Carlos","Juliana","Rafael","Beatriz"];
-const courses = ["Marketing","Programação","Python","Vendas","Web"];
+  let notificationsDisabled = false;
 
-function getRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+  const names = [
+    "Lucas",
+    "Maria",
+    "Pedro",
+    "Fernanda",
+    "Carlos",
+    "Juliana",
+    "Rafael",
+    "Ana"
+  ];
 
-function addHistory(name, course) {
-  const li = document.createElement("li");
-  li.textContent = `${name} entrou em ${course}`;
+  const courses = [
+    "Programação Web",
+    "Python",
+    "Marketing",
+    "Vendas Online",
+    "JavaScript"
+  ];
 
-  historyList.prepend(li);
-
-  if (historyList.children.length > 5) {
-    historyList.removeChild(historyList.lastChild);
+  function randomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
   }
-}
 
-function showPopup() {
-  if (muted) return;
+  function showPopup() {
 
-  const name = getRandom(names);
-  const course = getRandom(courses);
+    if (notificationsDisabled) return;
 
-  buyerName.textContent = name;
-  courseName.textContent = course;
+    buyerName.textContent = randomItem(names);
+    courseName.textContent = randomItem(courses);
 
-  addHistory(name, course);
+    popup.classList.add("show");
 
-  popup.classList.add("show");
+    setTimeout(() => {
+      popup.classList.remove("show");
+    }, 4500);
+  }
 
-  setTimeout(() => {
+  function popupLoop() {
+
+    const delay = Math.random() * 5000 + 4000;
+
+    setTimeout(() => {
+
+      showPopup();
+
+      popupLoop();
+
+    }, delay);
+  }
+
+  popupLoop();
+
+  // clicar no popup → ir para cursos
+  popup.addEventListener("click", (e) => {
+
+    if (e.target.id === "closePopup") return;
+
+    const cursos = document.getElementById("cursos");
+
+    if (cursos) {
+      cursos.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+  });
+
+  // fechar + desativar notificações
+  closePopup.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
     popup.classList.remove("show");
-  }, 4000);
-}
 
-// intervalo dinâmico (igual contador profissional)
-setInterval(() => {
-  showPopup();
-}, Math.random() * 4000 + 4000);
+    notificationsDisabled = true;
 
-// botão fechar
-closeBtn.addEventListener("click", () => {
-  popup.style.display = "none";
-});
+  });
 
-// botão silenciar
-muteBtn.addEventListener("click", () => {
-  muted = true;
-  popup.style.display = "none";
 });

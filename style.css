@@ -712,70 +712,116 @@ body.transitioning::after {
   margin-right: 6px;
 }
 
-.live-popup {
+
+/*POPUP*/
+.sale-popup {
   position: fixed;
-  bottom: -300px;
-  left: 20px;
-  width: 300px;
-  background: rgba(0,0,0,0.9);
-  border: 1px solid rgba(212,175,55,0.3);
+
+  top: 20px;
+  right: 20px;
+
+  width: 320px;
+
+  background: rgba(8,8,8,0.96);
+
+  border: 1px solid rgba(212,175,55,0.18);
+
+  border-radius: 18px;
+
+  padding: 18px;
+
   backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 16px;
-  color: white;
-  z-index: 9999;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+
+  z-index: 99999;
+
+  cursor: pointer;
+
   opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-20px);
+
+  transition:
+    opacity .4s ease,
+    transform .4s ease,
+    visibility .4s;
 }
 
-.live-popup.show {
-  transform: translateY(-320px);
+.sale-popup.show {
   opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.popup-header {
+.popup-close {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.06);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.popup-close:hover {
+  background: rgba(177,18,38,0.8);
+}
+
+.popup-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-badge {
+  width: fit-content;
+
+  background: rgba(212,175,55,0.12);
+
+  color: var(--gold);
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+}
+
+.popup-content p {
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.popup-content strong {
   color: var(--gold);
 }
 
-.popup-actions button {
-  background: none;
-  border: none;
+.popup-content h4 {
+  font-size: 1.1rem;
   color: white;
-  cursor: pointer;
-  margin-left: 8px;
 }
 
-.popup-body {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-}
-
-.popup-history {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 10px;
-}
-
-.popup-history h4 {
-  font-size: 0.8rem;
+.popup-click {
+  font-size: 0.82rem;
   color: var(--muted);
-  margin-bottom: 6px;
 }
 
-.popup-history ul {
-  list-style: none;
-  max-height: 100px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.popup-history li {
-  font-size: 0.8rem;
-  color: var(--muted);
+.sale-popup:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,175,55,0.35);
 }

@@ -565,25 +565,31 @@
   <footer>
     © 2026 EliteCourse — Landing page premium para venda de cursos.
   </footer>
-  <script src="script.js"></script>a
+  <script src="script.js"></script>
 
-  <div class="live-popup" id="livePopup">
+  <div class="sale-popup" id="salePopup">
 
-    <div class="popup-header">
-      <span>🔥 Atividade ao vivo</span>
-      <div class="popup-actions">
-        <button id="mutePopup">🔕</button>
-        <button id="closePopup">✖</button>
+    <button class="popup-close" id="closePopup">
+      ✕
+    </button>
+  
+    <div class="popup-content">
+  
+      <div class="popup-badge">
+        🔥 Nova compra
       </div>
-    </div>
   
-    <div class="popup-body">
-      <p><strong id="buyerName">Lucas</strong> entrou no curso de <span id="courseName">Marketing</span></p>
-    </div>
+      <p>
+        <strong id="buyerName">Lucas</strong>
+        acabou de comprar
+      </p>
   
-    <div class="popup-history">
-      <h4>Últimos alunos</h4>
-      <ul id="historyList"></ul>
+      <h4 id="courseName">Programação Web</h4>
+  
+      <span class="popup-click">
+        Clique para ver os cursos
+      </span>
+  
     </div>
   
   </div>
