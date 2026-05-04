@@ -236,3 +236,24 @@ overlay.addEventListener("click", () => {
   modal.style.display = "none";
   iframe.src = "";
 });
+
+const teachersCarousel = document.getElementById('teachersCarousel');
+const btnPrevTeacher = document.getElementById('prevTeacher');
+const btnNextTeacher = document.getElementById('nextTeacher');
+
+// Define a distância do scroll (tamanho de um card + gap)
+const scrollAmount = 350; 
+
+btnNextTeacher.addEventListener('click', () => {
+  teachersCarousel.scrollBy({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+});
+
+btnPrevTeacher.addEventListener('click', () => {
+  teachersCarousel.scrollBy({
+    left: -scrollAmount,
+    behavior: 'smooth'
+  });
+});

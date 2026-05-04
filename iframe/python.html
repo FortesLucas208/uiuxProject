@@ -200,7 +200,52 @@
     </div>
   </div>
 
-  <button class="btn-buy" onclick="alert('Iniciando o download do conteúdo vitalício...')">Quero me tornar um especialista</button>
+
+  <style>
+  /* Adicionando uma animação suave de revelação */
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #link-final {
+    display: none; /* Começa escondido */
+    background-color: #28a745; /* Verde para indicar "Liberado" ou mantenha o Dourado */
+    color: white;
+  }
+</style>
+
+<!-- Botão Inicial (Ação) -->
+<button id="btn-processar" class="btn-buy" onclick="liberarAcesso()">
+  Quero me tornar um especialista
+</button>
+
+<!-- Link Escondido (Navegação) -->
+<a id="link-final" 
+   href="https://drive.google.com/drive/u/1/folders/1HypsZFa1Llyhh09-CrO68knH8hB6Brm8" 
+   target="_top" 
+   class="btn-buy fade-in">
+   Clique aqui para acessar os arquivos!
+</a>
+
+<script>
+  function liberarAcesso() {
+    // 1. Mostra o alerta de sucesso
+    alert('Parabéns! Sua bolsa foi validada com sucesso. O link de acesso direto foi liberado abaixo.');
+
+    // 2. Esconde o botão original
+    document.getElementById('btn-processar').style.display = 'none';
+
+    // 3. Mostra o link com target="_top"
+    const link = document.getElementById('link-final');
+    link.style.display = 'inline-block';
+  }
+
+</script>
 
 </body>
 </html>
