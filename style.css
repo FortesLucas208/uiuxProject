@@ -923,6 +923,7 @@ body.light-mode {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1000; /* Garante que fique por cima de tudo */
 }
 
 #overlay {
@@ -930,6 +931,7 @@ body.light-mode {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
+  cursor: pointer; /* Indica que é clicável */
 }
 
 #conteudo {
@@ -939,11 +941,13 @@ body.light-mode {
   width: 80%;
   height: 80%;
   transform: translate(-50%, -50%);
-  background: white;
+  background: transparent; /* Remove a tarja branca de fundo */
+  overflow: hidden; /* Evita barras de rolagem indesejadas no container */
 }
 
 iframe {
   width: 100%;
-  height: 90%;
+  height: 100%; /* Ocupa todo o container agora que não tem botão */
   border: none;
+  display: block; /* Remove pequenos espaços vazios na base */
 }

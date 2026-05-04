@@ -214,17 +214,25 @@ themeToggle.addEventListener("change", () => {
 
 });
 
-const abrir = document.getElementById("abrirPopup");
+
+// Seleciona todas as divs que têm a classe "abrirPopup"
+const botoes = document.querySelectorAll(".abrirPopup");
 const modal = document.getElementById("modal");
 const iframe = document.getElementById("meuIframe");
-const fechar = document.getElementById("fechar");
+const overlay = document.getElementById("overlay");
 
-abrir.addEventListener("click", () => {
-  iframe.src = "iframe/java.html"; // seu código
-  modal.style.display = "block";
+botoes.forEach(div => {
+  div.addEventListener("click", () => {
+    // Pega o valor do "data-url" da div que foi clicada
+    const urlDinamica = div.getAttribute("data-url");
+    
+    iframe.src = urlDinamica;
+    modal.style.display = "block";
+  });
 });
 
-fechar.addEventListener("click", () => {
+// Mantém o clique no overlay para fechar
+overlay.addEventListener("click", () => {
   modal.style.display = "none";
-  iframe.src = ""; // limpa pra não ficar rodando em background
+  iframe.src = "";
 });
