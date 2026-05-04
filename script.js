@@ -213,3 +213,18 @@ themeToggle.addEventListener("change", () => {
   document.body.classList.toggle("light-mode");
 
 });
+
+const abrir = document.getElementById("abrirPopup");
+const modal = document.getElementById("modal");
+const iframe = document.getElementById("meuIframe");
+const fechar = document.getElementById("fechar");
+
+abrir.addEventListener("click", () => {
+  iframe.src = "iframe/java.html"; // seu código
+  modal.style.display = "block";
+});
+
+fechar.addEventListener("click", () => {
+  modal.style.display = "none";
+  iframe.src = ""; // limpa pra não ficar rodando em background
+});
